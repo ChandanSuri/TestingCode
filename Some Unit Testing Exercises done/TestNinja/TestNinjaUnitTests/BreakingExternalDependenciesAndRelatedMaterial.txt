@@ -1,0 +1,25 @@
+﻿Most Legacy Applicaations are built without Unit Testing.
+We can replace a code that has connection with external dependencies with a Test double to make a loosely coupled design.
+3 Steps:
+1. Extract that code that uses external dependencies into a separate class and isolate it from the rest of your code.
+2. Extract an interface from that new class, it is like setting up an contract without telling about the implementation details.(thus, a test double implementation can be used.)
+3. Modify the class to be tested and make it to talk through the interface by it's one of the concrete implementations. (Thus, depending only on the interface, and not implementation directly)
+Making it loosely coupled available for testing.
+Dependency Injection (3rd step above) can be done in 3 ways for any function:
+1. An object of the interface passed as a parameter to the function. (via Method Parameters)
+2. We can specify a property and then use it. (via Properties)
+3. Via Constructor Parameters
+The 3rd one above may see the best but it's Poor man's dependency Injection, That's why we use Dependency Injection Frameworks for this...
+DI Frameworks:
+In this there is a container which is basically a registry containing Interface and Implementations...
+-------------
+Mocking Frameworks are used to create fake or ock objects when you need to test some functionality, like we made FakeFileReader, but we may need different type of tests.
+For doing so, we need to create multiple mock objects, these can be made dynamically while testing, so, as you don't need to write them from scratch. Thus, we use Mocking Framework.
+(Moq Documentation)
+
+Testing Interaction of one class with another -> Interaction Testing...
+Use Interaction Testing only when dealing with external resources.
+---------------------
+Do not mock dependencies so much... ( as little as  possible)
+
+UNIT TESTS SHOULD BE FAST...
